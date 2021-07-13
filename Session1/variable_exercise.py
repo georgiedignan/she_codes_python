@@ -4,14 +4,19 @@
 #print(int(num1)+int(num2))
 
 #EXERCISE 2
-#num1 = input("Enter a number: ")
-#num2 = input("Enter another number: ")
-#print(num1 + ' * ' + num2 + ' =', int(num1)*int(num2)) 
+num1 = input("Enter a number: ")
+num2 = input("Enter another number: ")
+print(num1 + ' * ' + num2 + ' =', int(num1)*int(num2)) 
 
 #EXERCISE 3
 #km = input("How many kilometrers? ")
 #print(km + ' km' + ' =', int(km)*10**3, "m")
 #print(km + ' km' + ' =', int(km)*10**5, "cm")
+
+
+
+
+
 
 #EXERCISE 4
 name = input("What is your name? ")

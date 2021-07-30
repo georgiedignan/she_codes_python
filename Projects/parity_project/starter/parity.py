@@ -51,15 +51,15 @@ def add_column(grid):
         for item in new_column:
             row.append(item)
 
-        print(count_x)
-    print(new_column)
-    return grid
+        # print(count_x)
+    # print(new_column)
+    return type(grid)
 
 #returning none at the end??
     
-grid = load_grid('tests/grids/medium_grid.csv')
-x = add_column(grid)
-print(x)
+# grid = load_grid('tests/grids/medium_grid.csv')
+# x = add_column(grid)
+# print(x)
 
 def add_row(grid):
     """Adds a new row to a grid. For each column, if there is an even
@@ -72,7 +72,7 @@ def add_row(grid):
     Returns:
         The same grid, with a new row added.
     """
-#a way to tranpose a list of lists ?
+#transpose the grid
     grid = map(list, zip(*grid))
     count_x = 0 
     count_O = 0
@@ -94,10 +94,10 @@ def add_row(grid):
         for item in new_row:
             row.append(item)
 
-    print(count_x)
-    print(new_row)
-    print(grid)
-
+    # print(count_x)
+    # print(new_row)
+    # print(grid)
+#     return grid
     
 # grid = load_grid('tests/grids/medium_grid.csv')
 # print(add_row(grid))
@@ -123,17 +123,28 @@ def flip_cell(x_pos, y_pos, grid):
     Returns:
         The same grid, with a cell switched.
     """
-    # x_pos = int(input("Select x coordinate: "))
-    # y_pos = int(input("Select y coordinate: "))
 
-    #assign an index to each column and row in the grid
+    #CURRENT ANSWER
 
-    #row
-    for index in enumerate(grid):
-        if index == len(grid) - y_pos:
-            print(index)
+    #check current grid position
+    print(grid[y_pos][x_pos])
 
-# grid = load_grid('tests/grids/medium_grid.csv')
+    #flip the cell
+    if grid[y_pos][x_pos] == 'X':
+        #is this the correct way to reassign a position ??
+        grid[y_pos][x_pos] == 'hello'
+    else:
+        grid[y_pos][x_pos] == 'goodbye'
+
+    #check if the cell is flipped
+    print(grid[y_pos][x_pos])
+
+    # return grid 
+
+    
+grid = load_grid('tests/grids/medium_grid.csv')
+flip_cell = flip_cell(0,1,grid)
+print(flip_cell)
 
 
 def find_flipped_cell(grid):
@@ -154,4 +165,10 @@ def find_flipped_cell(grid):
             d = (1, 1)
         If 'a' was the flipped letter, this function would return: [0, 0]
     """
-    pass
+    #LOGIC
+    #counts number of x's and o's in input grid
+    #adds a column and row -> counts number of x's and o's in each column
+    #use flip cell function to flip a cell
+    #counts the number of x's and o's again
+    #the row/column that is different to the original count is the flipped cell
+

@@ -31,31 +31,27 @@ def add_column(grid):
     Returns:
         The same grid, with a new column added.
     """
-    count_x = 0 
-    count_O = 0
+    if grid == []:
+        return grid
+
     new_column = []
-    # print(grid)
     for row in grid:
         # print(row)
+        count_x = 0
         for char in row:
-        #count the number of x's
+        #count the number of x's 
             if char == 'X':
                 count_x += 1
-            else:
-                count_O+= 1
         if count_x%2 == 0:
-            new_column.append('O')
+            row.append('O')
         else:
-            new_column.append('X')
-        
-        for item in new_column:
-            row.append(item)
+            row.append('X')
 
+        # check the new column
         # print(count_x)
-    # print(new_column)
-    return type(grid)
-
-#returning none at the end??
+        # print(row[-1])
+    # print(grid)
+    return grid
     
 # grid = load_grid('tests/grids/medium_grid.csv')
 # x = add_column(grid)
@@ -72,33 +68,22 @@ def add_row(grid):
     Returns:
         The same grid, with a new row added.
     """
-#transpose the grid
-    grid = map(list, zip(*grid))
-    count_x = 0 
-    count_O = 0
-    new_row = []
-    # print(grid)
-    for row in grid:
-        # print(row)
-        for char in row:
-        #count the number of x's
-            if char == 'X':
-                count_x += 1
+    new_line = []
+    if grid == []:
+        return grid
+    else:
+        for i in range(len(grid[0])):
+            count_x = 0
+            for row in grid:
+                if row[i] == "X":
+                    count_x += 1
+            if count_x % 2 == 0:
+                new_line.append('O')
             else:
-                count_O+= 1
-        if count_x%2 == 0:
-            new_row.append('O')
-        else:
-            new_row.append('X')
-        
-        for item in new_row:
-            row.append(item)
+                new_line.append('X')
+    grid.append(new_line)
+    return grid
 
-    # print(count_x)
-    # print(new_row)
-    # print(grid)
-#     return grid
-    
 # grid = load_grid('tests/grids/medium_grid.csv')
 # print(add_row(grid))
 
@@ -127,24 +112,27 @@ def flip_cell(x_pos, y_pos, grid):
     #CURRENT ANSWER
 
     #check current grid position
-    print(grid[y_pos][x_pos])
+    # print(grid[y_pos][x_pos])
 
     #flip the cell
-    if grid[y_pos][x_pos] == 'X':
-        #is this the correct way to reassign a position ??
-        grid[y_pos][x_pos] == 'hello'
+    if grid == []:
+        return grid
     else:
-        grid[y_pos][x_pos] == 'goodbye'
+        if grid[y_pos][x_pos] == 'X':
+            #is this the correct way to reassign a position ??
+            grid[y_pos][x_pos] = 'O'
+        else:
+            grid[y_pos][x_pos] = 'X'
 
     #check if the cell is flipped
-    print(grid[y_pos][x_pos])
+    # print(grid[y_pos][x_pos])
 
-    # return grid 
+    return grid 
 
     
-grid = load_grid('tests/grids/medium_grid.csv')
-flip_cell = flip_cell(0,1,grid)
-print(flip_cell)
+# grid = load_grid('tests/grids/medium_grid.csv')
+# flip_cell = flip_cell(0,1,grid)
+# print(flip_cell)
 
 
 def find_flipped_cell(grid):
@@ -166,6 +154,11 @@ def find_flipped_cell(grid):
         If 'a' was the flipped letter, this function would return: [0, 0]
     """
     #LOGIC
+    #find the column and row with the odd number of x's
+
+
+
+
     #counts number of x's and o's in input grid
     #adds a column and row -> counts number of x's and o's in each column
     #use flip cell function to flip a cell

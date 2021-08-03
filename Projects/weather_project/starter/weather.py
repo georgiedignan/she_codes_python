@@ -194,8 +194,7 @@ def generate_daily_summary(weather_data):
     # print(output)
     return output
 
-# output = generate_daily_summary(load_data_from_csv("tests/data/example_two.csv"))
-# print(output)
+
 
 # ---- Friday 19 June 2020 ----
 #   Minimum Temperature: 8.3°C

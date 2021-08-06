@@ -129,7 +129,6 @@ def flip_cell(x_pos, y_pos, grid):
 
     return grid 
 
-    
 # grid = load_grid('tests/grids/medium_grid.csv')
 # flip_cell = flip_cell(0,1,grid)
 # print(flip_cell)
@@ -155,6 +154,14 @@ def find_flipped_cell(grid):
     """
     #LOGIC
     #find the column and row with the odd number of x's
+
+    x_pos,y_pos = []
+
+    
+
+
+
+
 
 
 

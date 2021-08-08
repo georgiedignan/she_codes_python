@@ -155,7 +155,29 @@ def find_flipped_cell(grid):
     #LOGIC
     #find the column and row with the odd number of x's
 
-    x_pos,y_pos = []
+    coords = []
+
+    #if number of x_s in row is odd - that is the x_pos
+
+    for column in range(len(grid)):
+        count_x = 0
+        for row in grid:
+            if row[column] == 'X':
+                count_x += 1
+        if count_x % 2 != 0:
+            coords.append(column) #appending the column number
+    
+    for row in enumerate(grid):
+        count_x = 0
+        for char in row:
+            if char == "X":
+                count_x +=1
+        if count_x % 2 != 0:
+            coords.append(row)
+
+    return coords
+
+
 
     
 
